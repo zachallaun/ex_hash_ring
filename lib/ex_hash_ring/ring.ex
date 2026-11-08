@@ -356,7 +356,8 @@ defmodule ExHashRing.Ring do
       :ets.new(:ring, [
         :protected,
         :ordered_set,
-        {:read_concurrency, true}
+        read_concurrency: true,
+        write_concurrency: true
       ])
 
     state = %__MODULE__{
